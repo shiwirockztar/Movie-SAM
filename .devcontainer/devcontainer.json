@@ -1,0 +1,37 @@
+{
+  "name": "Spring Boot Dev Container",
+  "image": "mcr.microsoft.com/vscode/devcontainers/java:0-17",
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-python.python",
+        "github.copilot",
+        "github.copilot-chat",
+        "github.copilot-labs",
+        "github.remotehub",
+        "pkief.material-icon-theme",
+        "ms-vscode.remote-repositories",
+        "mechatroner.rainbow-csv",
+        "mhutchie.git-graph",
+        "esbenp.prettier-vscode",
+        "rapidapi.vscode-rapidapi-client",
+        "rapidapi.vscode-services",
+        //"tabnine.tabnine-vscode",
+        "usernamehw.errorlens",
+        "vscjava.vscode-java-pack",
+        "vscjava.vscode-maven",
+        "vscjava.vscode-spring-boot",
+        "pivotal.vscode-spring-initializr"
+      ],
+      "settings": {
+        "java.configuration.runtimes": [
+          {
+            "name": "JavaSE-17",
+            "path": "/usr/local/openjdk-17"
+          }
+        ]
+      }
+    }
+  },
+  "postCreateCommand": "mvn -v || true",
+  "remoteUser": "vscode"
+}

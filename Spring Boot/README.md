@@ -146,7 +146,7 @@ app.frontend.url=http://localhost:4200
 - **spring.mail.properties.mail.smtp.connectiontimeout=5000**: Timeout de conexión en milisegundos (5 segundos).
 - **spring.mail.properties.mail.smtp.timeout=5000**: Timeout de lectura en milisegundos (5 segundos).
 - **spring.mail.properties.mail.smtp.writetimeout=5000**: Timeout de escritura en milisegundos (5 segundos).
-- **app.frontend.url=http://localhost:4200**: URL del frontend de la aplicación (probablemente Angular corriendo en localhost:4200).
+- **app.frontend.url=http://localhost:4200**: URL del frontend de la aplicación (Angular corriendo en localhost:4200).
 
 ## Archivo .gitignore
 

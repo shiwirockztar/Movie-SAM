@@ -82,12 +82,35 @@ La aplicación se ejecutará en:
 http://localhost:8080
 ```
 
-## Próximos Pasos
+## Archivo .gitignore
 
-- Crea controllers REST en el paquete `com.example.demo.controller`
-- Define servicios de negocio en el paquete `com.example.demo.service`
-- Configura la base de datos si es necesario en `application.properties`
-- Desarrolla tus endpoints y lógica de aplicación
+Se ha configurado un archivo `.gitignore` para ignorar archivos y carpetas que no deben ser versionados en el control de versiones. El archivo `.gitignore` contiene lo siguiente:
+
+```
+# Maven
+target/
+
+# Logs
+*.log
+
+# IDEs
+.idea/
+*.iml
+.vscode/
+
+# OS
+.DS_Store
+```
+
+Los elementos ignorados incluyen:
+
+- **target/**: Carpeta generada por Maven que contiene archivos compilados y empaquetados. No se debe versionar ya que se genera automáticamente durante la compilación.
+- ***.log**: Archivos de logs que pueden contener información sensible o cambiar frecuentemente, lo que podría causar conflictos en el repositorio.
+- **.idea/** y ***.iml**: Archivos específicos del IDE IntelliJ IDEA, que son configuraciones locales y no deben compartirse.
+- **.vscode/**: Archivos de configuración del IDE Visual Studio Code, específicos del entorno de desarrollo local.
+- **.DS_Store**: Archivos generados por el sistema operativo macOS, que no son relevantes para el proyecto.
+
+Esto asegura que solo el código fuente y archivos esenciales sean versionados, manteniendo el repositorio limpio y evitando conflictos.
 
 ## Referencias
 

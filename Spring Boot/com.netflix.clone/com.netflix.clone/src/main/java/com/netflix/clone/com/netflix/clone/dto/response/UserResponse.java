@@ -17,4 +17,16 @@ public class UserResponse {
     private Boolean active;
     private instant createdAt;
     private instant updatedAt;
+
+    public static UserResponse fromEntity(User user) {
+        UserResponse response = new UserResponse();
+        response.setId(user.getId());
+        response.setEmail(user.getEmail());
+        response.setFullName(user.getFullName());
+        response.setRole(user.getRole().name());
+        response.setActive(user.getActive());
+        response.setCreatedAt(user.getCreatedAt());
+        response.setUpdatedAt(user.getUpdatedAt());
+        return response;
+    }
 }

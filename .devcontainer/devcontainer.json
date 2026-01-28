@@ -1,6 +1,8 @@
 {
   "name": "Spring Boot Dev Container",
   "image": "mcr.microsoft.com/vscode/devcontainers/java:0-17",
+  "features": {
+  },
   "customizations": {
     "vscode": {
       "extensions": ["ms-python.python",
@@ -32,6 +34,6 @@
       }
     }
   },
-  "postCreateCommand": "mvn -v || true",
+  "postCreateCommand": "bash .devcontainer/init-mysql.sh",
   "remoteUser": "vscode"
 }

@@ -1,10 +1,11 @@
 package com.netflix.clone.dto.response;
 
-import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-import lombok. Data;
+import lombok.Data;
 
 import java.util.List;
+import java.time.Instant;
+import com.netflix.clone.entity.Video;
 
 @Data
 @NoArgsConstructor
@@ -25,7 +26,7 @@ public class VideoResponse {
     private Instant updatedAt;
     private Boolean isInWatchlist;
 
-    public VideoResponse(long id, String title, String description, Integer year, String rating, Integer duration, String src, String poster, Boolean published, List<String> categories, Instant createdAt, Instant updatedAt, Boolean isInWatchlist) {
+    public VideoResponse(long id, String title, String description, Integer year, String rating, Integer duration, String src, String poster, Boolean published, List<String> categories, Instant createdAt, Instant updatedAt) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -38,7 +39,7 @@ public class VideoResponse {
         this.categories = categories;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
-        this.isInWatchlist = isInWatchlist;
+        //this.isInWatchlist = isInWatchlist;
     }
 
     public static VideoResponse fromEntity(Video video) {
@@ -51,7 +52,7 @@ public class VideoResponse {
             video.getDuration(),
             video.getSrc(),
             video.getPoster(),
-            video.getPublished(),
+            video.isPublished(),
             video.getCategories(),
             //video.getCategories().stream().map(Category::getName).collect(Collectors.toList()),
             video.getCreatedAt(),

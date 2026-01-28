@@ -1,11 +1,23 @@
 package com.netflix.clone.entity;
 
+import jakarta.persistence.*;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence. Table;
-import Lombok. Getter;
-import Lombok. Setter;
+import lombok.Getter;
+import lombok.Setter;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity 
 @Table (name = "videos")
 @Getter
@@ -19,7 +31,7 @@ public class Video {
     @Column (nullable = false)
     private String title;
 
-    @Column (Length = 4000)
+    @Column (length = 4000)
     private String description;
 
     private Integer year;
@@ -57,7 +69,7 @@ public class Video {
     @JsonProperty ("src") 
     public String getSrc() {
         if(srcUuid != null && !srcUuid.isEmpty()) {
-            String baseUrl = ServletUriComponentsBuilder.fromCurrentContextPath.toUriString();
+            String baseUrl = ServletUriComponentsBuilder.fromCurrentContextPath().toUriString();
             return baseUrl+ "/api/files/video/"+srcUuid;
         }
         return null;

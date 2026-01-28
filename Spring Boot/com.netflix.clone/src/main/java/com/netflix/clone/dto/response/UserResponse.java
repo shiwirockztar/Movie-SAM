@@ -1,10 +1,12 @@
 package com.netflix.clone.dto.response;
 
+import com.netflix.clone.entity.User;
+
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Data;
 
-import java.util.List;
+import java.time.Instant;
 
 @Data
 @NoArgsConstructor
@@ -24,7 +26,8 @@ public class UserResponse {
         response.setEmail(user.getEmail());
         response.setFullName(user.getFullName());
         response.setRole(user.getRole().name());
-        response.setActive(user.getActive());
+        //response.setActive(user.getActive());
+        response.setActive(user.isActive());
         response.setCreatedAt(user.getCreatedAt());
         response.setUpdatedAt(user.getUpdatedAt());
         return response;

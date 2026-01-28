@@ -1,12 +1,20 @@
 package com.netflix.clone.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence. Table;
-import Lombok.Getter;
+import jakarta.persistence.*;
+import com.netflix.clone.enums.Role;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+
+//import com.netflix.clone.enums.Role;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import java.time.Instant;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity 
 @Table(name="users")

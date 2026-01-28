@@ -61,6 +61,12 @@ proyecto-spring-boot/
 
 ## Ejecutar el Proyecto
 
+### Por terminal linux
+```bash
+cd "/workspaces/Movie-SAM/Spring Boot/com.netflix.clone"
+./mvnw clean spring-boot:run
+```
+
 ### Usando Maven
 ```bash
 ./mvnw spring-boot:run

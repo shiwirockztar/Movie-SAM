@@ -1,4 +1,4 @@
-package com.netflix.clone;
+package com.netflix.clone.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;

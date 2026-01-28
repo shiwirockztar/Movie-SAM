@@ -11,7 +11,10 @@ echo "Iniciando MariaDB..."
 sudo service mariadb start || sudo mysqld_safe &
 sleep 3
 
+echo "Configurando contraseña de root..."
+sudo mariadb -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '123456';" || true
+
 echo "Creando base de datos..."
-sudo mysql -u root -e "CREATE DATABASE IF NOT EXISTS pulsescreen_video;" || sudo mariadb -u root -e "CREATE DATABASE IF NOT EXISTS pulsescreen_video;"
+sudo mariadb -u root -p123456 -e "CREATE DATABASE IF NOT EXISTS pulsescreen_video;" || sudo mariadb -u root -e "CREATE DATABASE IF NOT EXISTS pulsescreen_video;"
 
 echo "MariaDB instalado y listo"

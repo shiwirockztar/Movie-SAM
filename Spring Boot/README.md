@@ -67,6 +67,13 @@ cd "/workspaces/Movie-SAM/Spring Boot/com.netflix.clone"
 ./mvnw clean spring-boot:run
 ```
 
+### Por terminal linux
+```bash
+sudo service mariadb start
+cd "Spring Boot/com.netflix.clone"
+./mvnw clean spring-boot:run
+```
+
 ### Usando Maven
 ```bash
 ./mvnw spring-boot:run

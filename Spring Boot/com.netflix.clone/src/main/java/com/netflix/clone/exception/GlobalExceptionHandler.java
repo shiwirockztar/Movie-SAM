@@ -2,14 +2,22 @@ package com.netflix.clone.exception;
 
 import java.time.Instant;
 import java.util.Map;
-import java.util.logging.Logger;
-import org.slf4j.Loggerfactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ControllerAdvice;
+
+import org.apache.catalina.connector.ClientAbortException;
+import org.springframework.context.support.DefaultMessageSourceResolvable;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-    private static final Logger log = Loggerfactory.getLogger(GlobalExceptionHandler.class);
+    private static final Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
     @ExceptionHandler(BadCredentialsException.class)
     public ResponseEntity<Map<String, Object>> handleBadCredentials(BadCredentialsException ex) {
@@ -58,8 +66,8 @@ public class GlobalExceptionHandler {
         return buildResponse(HttpStatus.BAD_REQUEST, ex.getMessage());
     }
 
-    @ExceptionHandler(EmailAlreadyExistsException.class)
-    public ResponseEntity<Map<String, Object>> handleEmailAlreadyExists(EmailAlreadyExistsException ex) {
+    @ExceptionHandler(EmailALreadyExistsException.class)
+    public ResponseEntity<Map<String, Object>> handleEmailAlreadyExists(EmailALreadyExistsException ex) {
         log.warn("EmailAlreadyExistsException: {}", ex.getMessage(), ex);
         return buildResponse(HttpStatus.CONFLICT, ex.getMessage());
     }
@@ -82,7 +90,7 @@ public class GlobalExceptionHandler {
         );
     }
 
-    @ExceptionHandler({AsyncRequestNotUsableException.class, ClientAbortException.class})
+    @ExceptionHandler({ClientAbortException.class})
     public void handleClientAbortExceptions(Exception ex) {
         log.debug("Client closed connection during streaming (expected for video seeking bufering): {}", ex.getMessage());
     }

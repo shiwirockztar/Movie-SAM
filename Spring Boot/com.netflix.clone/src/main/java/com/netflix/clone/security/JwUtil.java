@@ -73,15 +73,16 @@ public class JwUtil {
                 .compact();
     }
 
-    public String doGenerateTokenV2(Map<String, Object> claims, String subject) {
+    /* 
+    public String doGenerateTokenV1(Map<String, Object> claims, String subject) {
         return Jwts.builder()
-                .setClaims(claims)
-                .setSubject(subject)
-                .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + JWT_TOKEN_VALIDITY))
+                .claims(claims)
+                .subject(subject)
+                .issuedAt(new Date(System.currentTimeMillis()))
+                .expiration(new Date(System.currentTimeMillis() + JWT_TOKEN_VALIDITY))
                 .signWith(getSigningKey())
                 .compact();
-    }
+    }*/
 
     public Boolean validateToken(String token, String username) {
         try {

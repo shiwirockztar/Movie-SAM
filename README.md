@@ -40,6 +40,17 @@ sudo mariadb -u root -p123456 pulsescreen_video
 
 **Nota:** La contraseña se configura automáticamente durante la inicialización del devcontainer.
 
+### Mostrar las tablas por consola
+
+```bash
+# MariaDB [pulsescreen_video]>  SHOW TABLES;
+SHOW TABLES;
+
+select * from users;
+
+desc users;
+```
+
 ### Si necesitas reiniciar MariaDB
 
 ```bash
@@ -49,6 +60,7 @@ sudo service mariadb restart
 ## 🚀 Ejecución del Proyecto
 
 ### Requisitos previos
+
 
 Antes de ejecutar el proyecto Spring Boot, asegúrate de que **MariaDB esté iniciado**:
 

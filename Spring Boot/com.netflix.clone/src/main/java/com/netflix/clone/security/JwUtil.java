@@ -84,7 +84,7 @@ public class JwUtil {
                 .compact();
     }*/
 
-    public Boolean validateToken(String token, String username) {
+    public Boolean validateToken(String token) {
         try {
             getAllClaimsFromToken(token);
             return !isTokenExpired(token);

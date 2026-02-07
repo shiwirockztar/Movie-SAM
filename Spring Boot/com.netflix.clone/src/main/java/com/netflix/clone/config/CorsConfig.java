@@ -3,11 +3,13 @@ package com.netflix.clone.config;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.beans.factory.annotation.Value;
+
 
 @Configuration
 public class CorsConfig implements WebMvcConfigurer {
 
-    @value("${app.cors.allowed-origins:http://localhost:4200}")
+    @Value("${app.cors.allowed-origins:http://localhost:4200}")
     private String[] allowedOrigins;
 
 

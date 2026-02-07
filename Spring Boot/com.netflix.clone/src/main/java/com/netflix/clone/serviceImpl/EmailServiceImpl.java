@@ -2,13 +2,17 @@ package com.netflix.clone.serviceImpl;
 
 import com.netflix.clone.service.EmailService;
 
-import java.util.logging.Logger;
-
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.SimpleMailMessage;
+import com.netflix.clone.exception.EmailNotVerifiedException;
+
+
+//import java.util.logging.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.Logger; 
 
 @Service
 public class EmailServiceImpl implements EmailService {
@@ -27,7 +31,7 @@ public class EmailServiceImpl implements EmailService {
     @Override
     public void sendVerificationEmail(String toEmail, String token) {
         try {
-            SimpleMessage message = new SimpleMessage();
+            SimpleMailMessage message = new SimpleMailMessage();
             message.setFrom(fromEmail);
             message.setTo(toEmail);
             message.setSubject("Netflix Clone - Verify Your Email");
@@ -46,7 +50,7 @@ public class EmailServiceImpl implements EmailService {
             message.setText(emailBody);
             mailSender.send(message);
             logger.info("Verification email sent to " + toEmail);
-        } catch (Exception e) {
+        } catch (Exception ex) {
             logger.error("Failed to send verification email to " + toEmail, ex.getMessage(), ex);
             throw new EmailNotVerifiedException("Failed to send verification email");
         }
@@ -55,7 +59,7 @@ public class EmailServiceImpl implements EmailService {
     @Override
     public void sendPasswordResetEmail(String toEmail, String token) {
         try {
-            SimpleMessage message = new SimpleMessage();
+            SimpleMailMessage message = new SimpleMailMessage();
             message.setFrom(fromEmail);
             message.setTo(toEmail);
             message.setSubject("Netflix Clone - Password Reset");
@@ -74,7 +78,7 @@ public class EmailServiceImpl implements EmailService {
             message.setText(emailBody);
             mailSender.send(message);
             logger.info("Password reset email sent to " + toEmail);
-        } catch (Exception e) {
+        } catch (Exception ex) {
             logger.error("Failed to send password reset email to " + toEmail, ex.getMessage(), ex);
             throw new RuntimeException("Failed to send password reset email");
         }

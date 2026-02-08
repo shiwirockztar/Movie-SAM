@@ -7,9 +7,10 @@ import com.netflix.clone.dto.response.MessageResponse;
 import com.netflix.clone.entity.User;
 import com.netflix.clone.enums.Role;
 import com.netflix.clone.exception.EmailALreadyExistsException;
+import com.netflix.clone.dao.UserRepository;
 import com.netflix.clone.dto.request.UserRequest;
-import com.netflix.clone.repository.UserRepository;
 import com.netflix.clone.security.JwUtil; 
+import java.time.Instant;
 
 import jakarta.validation.Valid;
 
@@ -32,7 +33,7 @@ public class AuthServiceImpl implements AuthService{
     private EmailService emailService;
 
     @Autowired
-    privateJwUtil jwUtil;
+    private JwUtil jwUtil;
 
     @Autowired
     private ServiceUtils serviceUtils;

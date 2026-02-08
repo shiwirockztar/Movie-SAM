@@ -1,17 +1,19 @@
 package com.netflix.clone.controller;
 
+import com.netflix.clone.service.AuthService;
+
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.beans.factory.annotation.Autowired;  
-import com.netflix.clone.service.AuthService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.beans.factory.annotation.Autowired;  
+
 import org.springframework.http.ResponseEntity;
 
 import com.netflix.clone.dto.request.UserRequest;
-import com.netflix.clone.payload.request.SignupRequest;
-import com.netflix.clone.payload.response.MessageResponse;
+import com.netflix.clone.dto.response.MessageResponse;
 
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/auth")
